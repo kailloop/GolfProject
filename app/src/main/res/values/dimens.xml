@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- COMMON -->
+    <dimen name="title_font_size">22sp</dimen>
+    <dimen name="super_font_size">20sp</dimen>
+    <dimen name="big_font_size">18sp</dimen>
+    <dimen name="default_font_size">16sp</dimen>
+    <dimen name="small_font_size">14sp</dimen>
+    <dimen name="inherit_font_size">12sp</dimen>
+    <dimen name="ten_font_size">10sp</dimen>
+
+    <dimen name="default_button_height">40dp</dimen>
+    <dimen name="default_horizontal">16dp</dimen>
+</resources>
