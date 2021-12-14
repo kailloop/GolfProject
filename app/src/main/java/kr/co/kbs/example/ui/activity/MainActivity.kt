@@ -2,10 +2,12 @@ package kr.co.kbs.example.ui.activity
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Handler
 import android.os.Message
 import android.view.Gravity
 import android.view.View
+import android.widget.ProgressBar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -18,12 +20,13 @@ import kr.co.kbs.example.adapter.MainJournalAdapter
 import kr.co.kbs.example.databinding.ActivityMainBinding
 import kr.co.kbs.example.ui.BaseActivity
 import kr.co.kbs.example.util.ImageLoader
+import kr.co.kbs.example.util.RecyclerDivider
 import kr.co.kbs.example.util.Util
 import java.lang.Exception
 
 class MainActivity : BaseActivity(), DrawerLayout.DrawerListener {
 
-    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private lateinit var eventAdapter: MainEventAdapter
     private lateinit var journalAdapter: MainJournalAdapter
     private var isDrawerDo: Boolean = false
@@ -75,50 +78,47 @@ class MainActivity : BaseActivity(), DrawerLayout.DrawerListener {
         // 메인 이벤트 이미지
         val mainDatas: ArrayList<String> = arrayListOf()
 
-        mainDatas.add("https://lh3.googleusercontent.com/proxy/W34tRukYrMf0pftSBNS6cNgdeY7kCg8VWqrotTM_YaXJ4ZEDlJPoJTFIfS_j4eqdwu-h2hTkpyk1Fpn8S0eCs2C1VPO5hzZZabkEGzEBaHPbhkLH")
-        mainDatas.add("https://lh3.googleusercontent.com/proxy/W34tRukYrMf0pftSBNS6cNgdeY7kCg8VWqrotTM_YaXJ4ZEDlJPoJTFIfS_j4eqdwu-h2hTkpyk1Fpn8S0eCs2C1VPO5hzZZabkEGzEBaHPbhkLH")
-        mainDatas.add("https://lh3.googleusercontent.com/proxy/W34tRukYrMf0pftSBNS6cNgdeY7kCg8VWqrotTM_YaXJ4ZEDlJPoJTFIfS_j4eqdwu-h2hTkpyk1Fpn8S0eCs2C1VPO5hzZZabkEGzEBaHPbhkLH")
-        mainDatas.add("https://lh3.googleusercontent.com/proxy/Cjvqd1UztO0WpeSIuFUJiYC80tyeaX7lqkbs-kqF_0Pc8571Bm-2P6Sl2O0SwkIcQKTALHZeAVp9lFt-HYN-WTi-9pesF54qYnYnk7LfBvbOdGxae1u20w")
+        mainDatas.add("https://cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/2G4GK6N4OHDSKFPS2USEYFIXKQ.jpg")
+        mainDatas.add("http://img.newspim.com/news/2013/01/21/20130121000121.jpg")
+        mainDatas.add("https://cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/2G4GK6N4OHDSKFPS2USEYFIXKQ.jpg")
+        mainDatas.add("http://img.newspim.com/news/2013/01/21/20130121000121.jpg")
+        mainDatas.add("https://cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/2G4GK6N4OHDSKFPS2USEYFIXKQ.jpg")
+        mainDatas.add("http://img.newspim.com/news/2013/01/21/20130121000121.jpg")
+        mainDatas.add("https://cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/2G4GK6N4OHDSKFPS2USEYFIXKQ.jpg")
+        mainDatas.add("http://img.newspim.com/news/2013/01/21/20130121000121.jpg")
 
-        try {
-            eventAdapter = MainEventAdapter(this@MainActivity, mainDatas, imgSize)
-            eventAdapter.apply {
-                setHasStableIds(false)
-            }
+        eventAdapter = MainEventAdapter(this@MainActivity, this@MainActivity, mainDatas)
+        eventAdapter.apply {
+            setHasStableIds(false)
+        }
 
-            binding.mainEvent.apply {
-                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                    override fun onPageScrollStateChanged(state: Int) {
-                        super.onPageScrollStateChanged(state)
+        binding.mainEvent.apply {
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageScrollStateChanged(state: Int) {
+                    super.onPageScrollStateChanged(state)
+                }
+
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                    super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                    if (positionOffsetPixels == 0) {
+                        binding.mainEvent.setCurrentItem(position)
                     }
+                }
 
-                    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                        super.onPageScrolled(position, positionOffset, positionOffsetPixels)
-                        if (positionOffsetPixels == 0) {
-                            binding.mainEvent.setCurrentItem(position)
-                        }
-                    }
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
 
-                    override fun onPageSelected(position: Int) {
-                        super.onPageSelected(position)
+                }
+            })
 
-                    }
-                })
-
-                adapter = eventAdapter
-                removeOverScroll()
-                offscreenPageLimit = mainDatas.size - 1
-            }
-
-            eventAdapter.notifyDataSetChanged()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        } finally {
-            Util.MY_LOG("종료")
+            adapter = eventAdapter
+            removeOverScroll()
+            offscreenPageLimit = mainDatas.size - 1
         }
     }
 
     private fun setupJournal() {    // Journal 이미지 셋팅
+
         val itemTouchCallback =
             object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP or ItemTouchHelper.DOWN, ItemTouchHelper.LEFT) {
                 override fun onMove(

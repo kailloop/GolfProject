@@ -1,375 +1,459 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
-    android:focusable="true"
-    android:background="@color/light_gray_color">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/dl_main"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="right">
+    <data>
+        <variable
+            name="model"
+            type="kr.co.kbs.example.util.BindingAdapter" />
+    </data>
 
-        <!-- Main View -->
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-            <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:background="@color/light_gray_color">
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/dl_main"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:fitsSystemWindows="true"
+            tools:openDrawer="right">
+
+            <!-- Main View -->
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-                <!-- 헤더 -->
+                android:fillViewport="true">
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="@dimen/default_horizontal"
-                    android:background="@color/white">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp">
-                        <TextView
-                            android:id="@+id/lbl_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:text="GOLF"
-                            android:textColor="@color/green_color"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/title_font_size"
-                            android:fontFamily="@font/bitro_pride_font"/>
-
-                        <EditText
-                            android:id="@+id/txt_search"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@id/lbl_title"
-                            android:layout_toLeftOf="@id/btn_hamb"
-                            android:background="@drawable/bg_input"
-                            android:fontFamily="@font/bitro_pride_font"
-                            android:gravity="center_vertical"
-                            android:imeOptions="actionDone"
-                            android:inputType="text"
-                            android:maxLines="1"
-                            android:paddingHorizontal="@dimen/default_horizontal"
-                            android:text="GOLF"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/default_font_size"
-                            android:textStyle="bold" />
-
-                        <ImageButton
-                            android:id="@+id/btn_hamb"
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:elevation="2dp"
-                            android:padding="7dp"
-                            android:scaleType="fitCenter"
-                            android:background="@color/white"
-                            android:src="@drawable/bt_hamb_menu" />
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:background="@color/white">
-                    <!-- 대분류 아이템 리스트 -->
-                    <GridLayout
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!-- 헤더 -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical"
                         android:paddingHorizontal="@dimen/default_horizontal"
-                        android:layout_centerInParent="true"
-                        android:orientation="horizontal"
-                        android:rowCount="2"
-                        android:columnCount="1">
-                        <LinearLayout
+                        android:background="@color/white">
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:orientation="horizontal">
-                            <LinearLayout
+                            android:layout_height="40dp">
+                            <TextView
+                                android:id="@+id/lbl_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:text="GOLF"
+                                android:textColor="@color/green_color"
+                                android:textStyle="bold"
+                                android:textSize="@dimen/title_font_size"
+                                android:fontFamily="@font/bitro_pride_font"/>
+
+                            <EditText
+                                android:id="@+id/txt_search"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size"
-                                    android:layout_weight="5"/>
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@id/lbl_title"
+                                android:layout_toLeftOf="@id/btn_hamb"
+                                android:background="@drawable/bg_input"
+                                android:fontFamily="@font/bitro_pride_font"
+                                android:gravity="center_vertical"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingHorizontal="@dimen/default_horizontal"
+                                android:text="GOLF"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/default_font_size"
+                                android:textStyle="bold" />
+
+                            <ImageButton
+                                android:id="@+id/btn_hamb"
+                                android:layout_width="40dp"
                                 android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:orientation="horizontal">
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size"
-                                    android:layout_weight="5"/>
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:paddingVertical="5dp"
-                                android:layout_weight="1"
-                                android:orientation="vertical">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/img_hole_flag" />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center"
-                                    android:text="나만의구장"
-                                    android:textColor="@color/black"
-                                    android:textStyle="bold"
-                                    android:textSize="@dimen/ten_font_size" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </GridLayout>
-                    <!-- 이벤트 -->
-                    <FrameLayout
+                                android:layout_alignParentRight="true"
+                                android:elevation="2dp"
+                                android:padding="7dp"
+                                android:scaleType="fitCenter"
+                                android:background="@color/white"
+                                android:src="@drawable/bt_hamb_menu" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/white"
-                        android:visibility="visible">
-                        <androidx.viewpager2.widget.ViewPager2
-                            android:id="@+id/main_event"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@color/white">
+                        <!-- 대분류 아이템 리스트 -->
+                        <GridLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-                        <ProgressBar
-                            android:id="@+id/pg_event"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="@dimen/default_horizontal"
+                            android:layout_centerInParent="true"
+                            android:orientation="horizontal"
+                            android:rowCount="2"
+                            android:columnCount="1">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size"
+                                        android:layout_weight="5"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size"
+                                        android:layout_weight="5"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:paddingVertical="5dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_hole_flag" />
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="나만의구장"
+                                        android:textColor="@color/black"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/ten_font_size" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </GridLayout>
+                        <!-- 이벤트 -->
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="50dp"/>
-                    </FrameLayout>
-                    <!-- 저널 -->
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="90dp"
-                        android:visibility="visible">
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/lst_journal"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/white"
+                            android:visibility="visible">
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/main_event"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                            <ProgressBar
+                                android:id="@+id/pg_event"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="50dp"/>
+                        </FrameLayout>
+                        <!-- 저널 -->
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_marginLeft="@dimen/default_horizontal"
                             android:layout_height="90dp"
-                            android:divider="@null"
-                            android:overScrollMode="never" />
-                        <ProgressBar
-                            android:id="@+id/pg_journal"
+                            android:visibility="visible">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/lst_journal"
+                                android:layout_width="match_parent"
+                                android:layout_marginLeft="@dimen/default_horizontal"
+                                android:layout_height="90dp"
+                                android:divider="@null"
+                                android:overScrollMode="never" />
+                            <ProgressBar
+                                android:id="@+id/pg_journal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="50dp"/>
+                        </FrameLayout>
+
+                        <View
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="50dp"/>
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="400dp"/>
+                            android:layout_height="400dp"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+            </ScrollView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="right"
-            android:background="@color/white">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-            </LinearLayout>
-        </RelativeLayout>
-    </androidx.drawerlayout.widget.DrawerLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_gravity="right"
+                android:background="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal"
+                        android:background="@color/green_color">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingHorizontal="@dimen/default_horizontal"
+                            android:paddingVertical="10dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="boy432"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/big_font_size"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/bitro_pride_font"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_user_order" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_menu_order_cnt"
+                                        android:textColor="@color/white"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/inherit_font_size"/>
+                                </LinearLayout>
+                                <View
+                                    android:layout_width="1.5dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginVertical="10dp"
+                                    android:background="@drawable/bg_divider"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/img_user_grade"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/main_menu_grade"
+                                        android:textStyle="bold"
+                                        android:textSize="@dimen/inherit_font_size"
+                                        android:textColor="@color/white"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <ImageView
+                            android:id="@+id/img_user_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:layout_weight="3"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

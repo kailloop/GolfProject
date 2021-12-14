@@ -2,5 +2,6 @@
     <string name="app_name">example</string>
     <string name="debug_tag">MY_LOG</string>
 
-
+    <string name="main_menu_order_cnt">주문 내역</string>
+    <string name="main_menu_grade">사용자 등급</string>
 </resources>

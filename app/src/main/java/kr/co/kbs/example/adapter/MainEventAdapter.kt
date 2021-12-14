@@ -8,8 +8,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kr.co.kbs.example.R
 import kr.co.kbs.example.databinding.ListMainEventBinding
+import kr.co.kbs.example.ui.activity.MainActivity
 import kr.co.kbs.example.util.ImageLoader
 import kr.co.kbs.example.util.Util
 import java.util.*
@@ -17,8 +22,8 @@ import kotlin.collections.ArrayList
 
 class MainEventAdapter(
     private val context: Context,
-    var items: ArrayList<String> = arrayListOf(),
-    val imgSize: ArrayList<Int>
+    private val activity: MainActivity,
+    var items: ArrayList<String> = arrayListOf()
 ) :
 
     RecyclerView.Adapter<MainEventAdapter.ViewHolder>() {
@@ -37,14 +42,19 @@ class MainEventAdapter(
 
     inner class ViewHolder(private val binding: ListMainEventBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(dataLst: List<String>, position: Int) {
-            if (position > dataLst.size) {
-                ImageLoader.bindInImageView(binding.imgEvent, dataLst.get(position))
-            } else if (position == dataLst.size) {
-                ImageLoader.bindInImageView(binding.imgEvent, dataLst.get(position))
-            }
 
-            if (position != (dataLst.size - 1)) {
-                
+            CoroutineScope(Dispatchers.Main).launch {
+                launch {
+                    withContext(Dispatchers.IO){
+                        ImageLoader.bindInImageView(binding.imgEvent, dataLst.get(position))
+                    }
+                }.join()
+
+                launch {
+                    if (position != (dataLst.size - 1)) {
+                        activity.toggleProgress(activity.binding.pgEvent, false)
+                    }
+                }.join()
             }
         }
     }

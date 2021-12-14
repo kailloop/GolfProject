@@ -8,6 +8,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.app.AppCompatActivity
@@ -85,9 +86,24 @@ abstract class BaseActivity : FragmentActivity(), View.OnClickListener {
         false
     }
 
+    // *****************************************************************************
+    // VIEW PAGER2 FUNC
+    // *****************************************************************************
+
     fun ViewPager2.removeOverScroll() { // ViewPager2 remove OverScrollMode
         (getChildAt(0) as? RecyclerView)?.overScrollMode = View.OVER_SCROLL_NEVER
     }
 
+    // *****************************************************************************
+    // PROGRESS FUNC
+    // *****************************************************************************
+
+    fun toggleProgress(pg: ProgressBar, isVisible:Boolean) {
+        if(isVisible) {
+            pg.visibility = View.VISIBLE
+        }else {
+            pg.visibility = View.GONE
+        }
+    }
 
 }

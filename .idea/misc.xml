@@ -4,11 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/drawable/bg_button.xml" value="0.22083333333333333" />
+        <entry key="..\:/Study WorkSpace/example/app/src/main/res/drawable/bg_divider.xml" value="0.2111111111111111" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/drawable/bg_input.xml" value="0.21354166666666666" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/drawable/bt_hamb_menu.xml" value="0.21354166666666666" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/font/font_default.xml" value="0.22760416666666666" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/layout/activity_intro.xml" value="0.1" />
-        <entry key="..\:/Study WorkSpace/example/app/src/main/res/layout/activity_main.xml" value="0.16231884057971013" />
+        <entry key="..\:/Study WorkSpace/example/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/layout/fragment_intro_one.xml" value="0.22" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/layout/fragment_intro_three.xml" value="0.25" />
         <entry key="..\:/Study WorkSpace/example/app/src/main/res/layout/fragment_intro_two.xml" value="0.2046875" />
